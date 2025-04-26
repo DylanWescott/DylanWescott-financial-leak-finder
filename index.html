@@ -13,32 +13,32 @@
     </style>
 </head>
 <body>
+    <h1>🔎 Find Your Financial Leaks</h1>
+    <p>Upload your statement. We'll anonymize it instantly and show you where you're losing money.</p>
 
-<h1>🚨 Find Your Financial Leaks</h1>
-<p>Upload your statement. We’ll anonymize it instantly and show you where you’re losing <strong>money</strong>.</p>
+    <form id="upload-form">
+        <input type="file" id="file-upload" accept=".pdf,.csv" required><br><br>
+        <button type="submit">Upload and Analyze</button>
+    </form>
 
-<form id="upload-form">
-    <input type="file" id="file-upload" accept=".pdf,.csv" required><br><br>
-    <button type="submit">Upload and Analyze</button>
-</form>
+    <div id="response" style="margin-top: 20px;"></div>
 
-<div id="response" style="margin-top: 20px;"></div>
+    <script>
+        const form = document.getElementById('upload-form');
+        const responseDiv = document.getElementById('response');
 
-<script>
-const form = document.getElementById('upload-form');
-const responseDiv = document.getElementById('response');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const fileInput = document.getElementById('file-upload');
+            const file = fileInput.files[0];
 
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const fileInput = document.getElementById('file-upload');
-    const file = fileInput.files[0];
-    if (!file) {
-        responseDiv.innerText = "Please select a file.";
-        return;
-    }
-    responseDiv.innerText = "File uploaded successfully (simulated). Analysis will begin...";
-});
-</script>
+            if (!file) {
+                responseDiv.innerText = "Please select a file.";
+                return;
+            }
 
+            responseDiv.innerText = "File uploaded successfully (simulated). Analysis will begin...";
+        });
+    </script>
 </body>
 </html>
